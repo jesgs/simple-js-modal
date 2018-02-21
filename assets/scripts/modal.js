@@ -1,5 +1,11 @@
-(function (document) {
-    document.addEventListener('DOMContentLoaded', function(e) {
+(function () {
+    const _onLoad = (e) => {
+        let close = function(e) {
+            e.preventDefault();
+            modal.style.display = 'none';
+            modalContentOuter.style = null;
+        };
+
         const modalLink = document.getElementsByClassName('modal-link');
         const modal = document.getElementById('modal');
         const modalClose = document.getElementById('modalClose');
@@ -23,10 +29,7 @@
 
         modal.addEventListener('click', close);
         modalClose.addEventListener('click', close);
+    };
 
-        function close() {
-            modal.style.display = 'none';
-            modalContentOuter.style = false;
-        }
-    });
-})(document);
+    document.addEventListener('DOMContentLoaded', _onLoad);
+})();
