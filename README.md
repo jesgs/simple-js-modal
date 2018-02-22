@@ -11,8 +11,18 @@ A simple script for loading images into a modal view.
 Include `<script src="dist/assets/scripts/modal.js"></script>` or `<script src="dist/assets/scripts/modal.min.js"></script>`
 in your document. Add `modal-link` class to links that you would like to open in a modal. Right now, this script only supports
 images. Future support will include ajax loading of external page content.
+#### Example:
 ```html
     <a class="modal-link" href="assets/images/placeimg_640_480_animals.jpg">
+        <img src="assets/images/placeimg_640_480_animals.jpg" width="25%" height="25%" alt="">
+    </a>
+```
+
+#### Data attributes:
+`data-modal-content-width` Sets the width of the modal content area.
+#### Example:
+```html
+    <a class="modal-link" data-modal-content-width="640" href="assets/images/placeimg_640_480_animals.jpg">
         <img src="assets/images/placeimg_640_480_animals.jpg" width="25%" height="25%" alt="">
     </a>
 ```

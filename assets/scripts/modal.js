@@ -5,6 +5,19 @@
             modal.style.display = 'none';
             modalContentOuter.style = null;
         };
+        let openModal = function(e) {
+            e.preventDefault();
+            let link = this.getAttribute('href');
+            let width = this.dataset.modalContentWidth
+                ? `${this.dataset.modalContentWidth}px` : false;
+
+            modal.style.display = 'block';
+
+            modalContent.innerHTML = `<img src="${link}" />`;
+            if (width) {
+                modalContentOuter.style.width = width;
+            }
+        };
 
         const modalLink = document.getElementsByClassName('modal-link');
         const modal = document.getElementById('modal');
@@ -15,16 +28,7 @@
         for (let m in modalLink) {
             if (typeof(modalLink[m]) !== 'object') continue;
 
-            modalLink[m].addEventListener('click', function(e) {
-                e.preventDefault();
-                let link = this.getAttribute('href');
-
-                modal.style.display = 'block';
-
-                modalContent.innerHTML = `<img src="${link}" />`;
-                let newModalWidth = modalContent.getElementsByTagName('img')[0].width;
-                modalContentOuter.style.width = `${newModalWidth}px`
-            });
+            modalLink[m].addEventListener('click', openModal);
         }
 
         modal.addEventListener('click', close);
