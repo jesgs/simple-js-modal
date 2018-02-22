@@ -1,10 +1,11 @@
 (function () {
-    const _onLoad = (e) => {
-        let close = function(e) {
+    const Modal = (e) => {
+        let closeModal = function(e) {
             e.preventDefault();
             modal.style.display = 'none';
             modalContentOuter.style = null;
         };
+
         let openModal = function(e) {
             e.preventDefault();
             let link = this.getAttribute('href');
@@ -19,8 +20,12 @@
             }
         };
 
-        const modalLink = document.getElementsByClassName('modal-link');
         const modal = document.getElementById('modal');
+        if (!modal) {
+            throw 'Missing modal element!';
+        }
+
+        const modalLink = document.getElementsByClassName('modal-link');
         const modalClose = document.getElementById('modalClose');
         const modalContent = document.getElementById('modalContent');
         const modalContentOuter = document.getElementById('modalContentOuter');
@@ -31,9 +36,9 @@
             modalLink[m].addEventListener('click', openModal);
         }
 
-        modal.addEventListener('click', close);
-        modalClose.addEventListener('click', close);
+        modal.addEventListener('click', closeModal);
+        modalClose.addEventListener('click', closeModal);
     };
 
-    document.addEventListener('DOMContentLoaded', _onLoad);
+    document.addEventListener('DOMContentLoaded', Modal);
 })();

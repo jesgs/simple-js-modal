@@ -10,13 +10,50 @@
     <script src="assets/scripts/modal.js"></script>
 </head>
 <body>
-    <h1>Look Ma, no jQuery!</h1>
-    <a class="modal-link" data-modal-content-width="640" href="assets/images/placeimg_640_480_animals.jpg">
-        <img src="assets/images/placeimg_640_480_animals.jpg" width="25%" height="25%" alt="">
-    </a>
-    <a class="modal-link" href="assets/images/placeimg_640_480_nature.jpg">
-        <img src="assets/images/placeimg_640_480_nature.jpg" width="25%" height="25%" alt="">
-    </a>
+    <h1>Simple JavaScript Modal</h1>
+    <p>A simple script for loading images into a modal view.</p>
+
+    <h3>Project Files</h3>
+    <ul>
+        <li>/assets/scripts/modal.js</li>
+        <li>/assets/styles/modal.css</li>
+        <li>/assets/images/spinner.gif</li>
+    </ul>
+
+    <h3>Live Example:</h3>
+    <p>
+        <a class="modal-link" data-modal-content-width="640" href="assets/images/placeimg_640_480_animals.jpg"><img src="assets/images/placeimg_640_480_animals.jpg" width="25%" height="25%" alt=""></a>
+        <a class="modal-link" href="assets/images/placeimg_640_480_nature.jpg"><img src="assets/images/placeimg_640_480_nature.jpg" width="25%" height="25%" alt=""></a>
+    </p>
+    <h3>Usage</h3>
+    <p>Include
+        <code>
+            &lt;script src="dist/assets/scripts/modal.js"&gt;&lt/script&gt;
+        </code>
+
+        in your document. Add <code>modal-link</code> class to links that you would like to open in a modal. Right now, this script
+        only supports images. Future support will include ajax loading of external page content.
+    </p>
+    <h4>Example</h4>
+    <pre><code class="html">    &lt;a class=&quot;modal-link&quot; href=&quot;assets/images/placeimg_640_480_animals.jpg&quot;&gt;
+        &lt;img src=&quot;assets/images/placeimg_640_480_animals.jpg&quot; width=&quot;25%&quot; height=&quot;25%&quot; alt=&quot;&quot;&gt;
+    &lt;/a&gt;</code></pre>
+    <h4>Data attributes</h4>
+    <p><code>data-modal-content-width</code> Sets the width of the modal content area.</p>
+    <h4>Example</h4>
+    <pre><code class="html">    &lt;a class=&quot;modal-link&quot; data-modal-content-width=&quot;640&quot; href=&quot;assets/images/placeimg_640_480_animals.jpg&quot;&gt;
+        &lt;img src=&quot;assets/images/placeimg_640_480_animals.jpg&quot; width=&quot;25%&quot; height=&quot;25%&quot; alt=&quot;&quot;&gt;
+    &lt;/a&gt;
+</code></pre>
+
+    <h4>Styling</h4>
+    <ul>
+        <li><code>.modal</code> controls the appearance of the overlay</li>
+        <li><code>.modal__content</code> controls the appearance of the content area</li>
+        <li><code>.modal__content__close</code> controls the appearance of the close button</li>
+        <li><code>.modal__content__spinner</code> controls the positioning of the ajax spinner</li>
+    </ul>
+    <p>A <code>modal.scss</code> file is included for use in other projects.</p>
 
     <div class="modal" id="modal">
         <div id="modalContentOuter" class="modal__content">
